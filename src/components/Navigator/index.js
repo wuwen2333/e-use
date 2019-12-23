@@ -16,7 +16,7 @@ function Navigator({ currentPage, onPageChange }) {
         <ul className="tool-list">
           {
             navs.map((item, index) => (
-              <li className={`tool ${currentPage === item.name && 'active'}`} key={index} onClick={() => onPageChange(item.name)} title={item.desc}>
+              <li className={`tool ${currentPage === item.name && 'active'}`} key={index} onClick={() => onPageChange(item)} title={item.desc}>
                 <div className="icon"></div>
                 <div className="info">
                   <p className="title">{item.title}</p>

@@ -1,28 +1,22 @@
 import React from 'react';
 import Navigator from './components/Navigator';
-import Time from './pages/Time';
+import Module from './components/Module';
 
 import './App.scss'
 
 function App() {
-  const [currentPage, setCurrentPage] = React.useState('');
-
-  let currentPageComponent = <></>;
-  switch (currentPage) {
-    case 'time':
-      currentPageComponent = <Time />
-      break;
-  
-    default:
-      break;
-  }
+  const [currentPage, setCurrentPage] = React.useState();
 
   return (
-    <div className={`app ${!currentPage && 'dashboard'}`}>
-      <Navigator currentPage={currentPage} onPageChange={setCurrentPage} />
-      <div className="body">
-        {currentPageComponent}
-      </div>
+    <div className='app'>
+      <Navigator currentPage={currentPage && currentPage.name} onPageChange={setCurrentPage} />
+      {currentPage && (
+        <div className="body">
+          <Module className={currentPage.name} title={currentPage.title}>
+            {currentPage.component}
+          </Module>
+        </div>
+      )}
     </div>
   );
 }

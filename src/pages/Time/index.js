@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-import Module from '../../components/Module'
 import TimeToTimestamp from './TimeToTimestamp'
 import TimestampToTime from './TimestampToTime'
 
@@ -9,7 +8,7 @@ import './styles.scss'
 
 function Time() {
   return (
-    <Module className="time" title="Time">
+    <>
       <Card>
         <Card.Body>
           <Card.Title>Time To Timestamp</Card.Title>
@@ -22,7 +21,7 @@ function Time() {
           <TimestampToTime />
         </Card.Body>
       </Card>
-    </Module>
+    </>
   )
 }
 

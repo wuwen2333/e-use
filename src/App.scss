@@ -20,23 +20,6 @@
     }
     .module {
       padding: 20px;
-      &-title {
-        padding: 20px;
-        font-size: 24px;
-      }
     }
-  }
-  &.dashboard {
-    .body {
-      display: none;
-    }
-  }
-  .row {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-  }
-  .form {
-    padding: 10px 0;
   }
 }
