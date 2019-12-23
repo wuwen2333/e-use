@@ -1,0 +1,39 @@
+$light-black: #21212a;
+$gray-blue: #3f4d67;
+$red: #f44236;
+
+$purple: #899fd4;
+$light-purple: #a389d4;
+
+$light-green: #1de9b6;
+$light-blue: #1dc4e9;
+
+$linear-purple: linear-gradient(-135deg, $purple, $light-purple);
+$linear-blue: linear-gradient(-135deg, $light-green, $light-blue);
+
+$box-shadow: 1px 0 20px 0 $gray-blue;
+$box-shadow-card: 0 1px 20px 0 rgba(69, 90, 100, .08);
+
+@mixin text-ellipsis($selector) {
+  #{$selector} {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@mixin border-bottom ($selector, $background) {
+  #{$selector} {
+    position: relative;
+  }
+  #{$selector}:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: $background;
+  }
+}

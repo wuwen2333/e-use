@@ -1,0 +1,149 @@
+@import '../../assets/scss/base.scss';
+
+.navigator {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #21212a;
+  transition: all ease 0.4s;
+  .nav-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .float-collapse-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255,255,255,.8);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    @include border-bottom('&', $linear-purple);
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      background: $linear-purple;
+    }
+    p {
+      flex: 1;
+      padding-left: 10px;
+      font-size: 18px;
+      color: #fff;
+      font-size: 18px;
+    }
+    .collapse-btn {
+      display: none;
+      background-color: rgba(255,255,255,.8);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+  .tool-list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .tool {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 30%;
+      margin-left: 5%;
+      margin-top: 20px;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      &:nth-child(3n + 1) {
+        margin-left: 0;
+      }
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $linear-purple;
+        opacity: 0.5;
+      }
+      .info {
+        flex: 1;
+        margin-left: 10px;
+        min-width: 0;
+        @include text-ellipsis('.desc');
+        p {
+          text-align: left;
+          line-height: 24px;
+          font-size: 12px;
+          color: #fff;
+          &.title {
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+      &.active, &:hover {
+        .icon {
+          opacity: 1;
+        }
+        .title {
+          color: $light-purple
+        }
+      }
+    }
+  }
+  &.sidebar, &.collapse:hover {
+    flex: none;
+    padding: 10px;
+    width: 270px;
+    header {
+      display: flex;
+      .collapse-btn {
+        display: block;
+      }
+    }
+    .tool-list {
+      display: flex;
+      margin-top: 20px;
+      .tool {
+        flex-direction: column;
+        background: none;
+        padding: 0;
+        .info {
+          margin: 5px 0 0 0;
+          .title {
+            text-align: center;
+            font-size: 12px;
+            font-weight: normal;
+          }
+          .desc {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  &.collapse {
+    flex: none;
+    width: 40px;
+    margin: 0;
+    overflow: hidden;
+    header {
+      display: none;
+      .collapse-btn {
+        display: block;
+      }
+    }
+    .tool-list {
+      display: none;
+    }
+  }
+}
