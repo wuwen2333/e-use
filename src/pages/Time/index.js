@@ -1,26 +1,34 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row, Col, Alert } from 'react-bootstrap' 
 
+import Current from './Current'
 import TimeToTimestamp from './TimeToTimestamp'
 import TimestampToTime from './TimestampToTime'
 
 import './styles.scss'
 
 function Time() {
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertVariant, setAlertVariant] = useState('');
+  const [alertMsg, setAlertMsg] = useState('');
+
+  const alert = (variant, msg) => {
+    setShowAlert(true);
+    setAlertVariant(variant);
+    setAlertMsg(msg);
+  }
   return (
     <>
-      <Card>
-        <Card.Body>
-          <Card.Title>Time To Timestamp</Card.Title>
-          <TimeToTimestamp />
-        </Card.Body>
-      </Card>
-      <Card style={{ marginTop: '20px' }}>
-        <Card.Body>
-          <Card.Title>Timestamp To Time</Card.Title>
-          <TimestampToTime />
-        </Card.Body>
-      </Card>
+      {showAlert && (
+        <Alert variant={alertVariant} onClose={() => setShowAlert(false)} dismissible>
+          {alertMsg}
+        </Alert>
+      )}
+      <Current alert={alert} />
+      <Row>
+        <Col><TimestampToTime /></Col>
+        <Col><TimeToTimestamp /></Col>
+      </Row>
     </>
   )
 }

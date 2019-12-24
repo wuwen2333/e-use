@@ -5,9 +5,9 @@ const navigator = [
   {
     name: 'time',
     title: 'Time conversion',
-    desc: 'Time conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversion',
+    desc: 'Time conversion',
     component: <Time />,
-    icon: '',
+    icon: 'icon_time.png',
   },
 ]
 
