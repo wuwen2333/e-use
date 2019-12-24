@@ -18,3 +18,7 @@ export function timestampToTime (timestamp, format) {
   const res = _format.replace('YY', year).replace('MM', month).replace('DD', date).replace('hh', hour).replace('mm', min).replace('ss', second);
   return res;
 }
+
+export function timeToTimestamp (timeString) {
+  return (new Date(timeString)).getTime() / 1000;
+}
