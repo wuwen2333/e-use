@@ -7,7 +7,7 @@ const navigator = [
     title: 'Time conversion',
     desc: 'Time conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversionTime conversion',
     component: <Time />,
-    icon: '',
+    icon: 'icon_time.png',
   },
 ]
 

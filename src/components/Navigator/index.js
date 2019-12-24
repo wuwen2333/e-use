@@ -17,7 +17,9 @@ function Navigator({ currentPage, onPageChange }) {
           {
             navs.map((item, index) => (
               <li className={`tool ${currentPage === item.name && 'active'}`} key={index} onClick={() => onPageChange(item)} title={item.desc}>
-                <div className="icon"></div>
+                <div className="icon">
+                  <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
+                </div>
                 <div className="info">
                   <p className="title">{item.title}</p>
                   <p className="desc">{item.desc}</p>
