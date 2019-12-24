@@ -48,13 +48,20 @@
     margin-bottom: 0;
   }
   .btn-outline-primary,.btn-outline-primary.focus, .btn-outline-primary:focus {
-    border-color: $light-blue;
-    color: $light-blue;
+    border-color: $light-purple;
+    color: $light-purple;
     box-shadow: none;
+    &:hover {
+      border-color: transparent;
+      background: $linear-purple;
+    }
   }
   .btn-primary,.btn-primary.focus, .btn-primary:focus {
-    background: $linear-blue;
+    background: $linear-purple;
     border-color: transparent;
     box-shadow: none;
+    &:hover {
+      border-color: $light-purple;
+    }
   }
 }
