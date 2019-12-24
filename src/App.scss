@@ -14,12 +14,47 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    .card {
-      border: none;
-      box-shadow: $box-shadow-card;
-    }
     .module {
       padding: 20px;
     }
+  }
+  // reset bootstrap class
+  .card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: $box-shadow-card;
+  }
+  .card-body {
+    .card-title {
+      position: relative;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      // &:before {
+      //   content: '';
+      //   position: absolute;
+      //   left: -1.25rem;
+      //   width: 2px;
+      //   height: 100%;
+      //   background: $linear-purple;
+      // }
+    }
+  }
+  .form-control {
+    // border-color: $light-black;
+  }
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+  .btn-outline-primary,.btn-outline-primary.focus, .btn-outline-primary:focus {
+    border-color: $light-blue;
+    color: $light-blue;
+    box-shadow: none;
+  }
+  .btn-primary,.btn-primary.focus, .btn-primary:focus {
+    background: $linear-blue;
+    border-color: transparent;
+    box-shadow: none;
   }
 }

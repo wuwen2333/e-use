@@ -1,10 +1,13 @@
 import React from 'react'
+import { Card } from 'react-bootstrap'
 
 function TimeToTimestamp() {
   return (
-    <div>
-      TimeToTimestamp
-    </div>
+    <Card>
+      <Card.Body>
+        <Card.Title>Time To Timestamp</Card.Title>
+      </Card.Body>
+    </Card>
   )
 }
 

@@ -3,9 +3,10 @@ import Navigator from './components/Navigator';
 import Module from './components/Module';
 
 import './App.scss'
+import navs from './conts/navigator'
 
 function App() {
-  const [currentPage, setCurrentPage] = React.useState();
+  const [currentPage, setCurrentPage] = React.useState(navs[0]);
 
   return (
     <div className='app'>
