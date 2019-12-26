@@ -20,5 +20,5 @@ export function timestampToTime (timestamp, format) {
 }
 
 export function timeToTimestamp (timeString) {
-  return (new Date(timeString)).getTime() / 1000;
+  return String((new Date(timeString)).getTime() / 1000);
 }

@@ -8,7 +8,7 @@ import {
 } from 'react-bootstrap'
 import { timestampToTime } from './utils'
 
-function TimestampToTime() {
+const TimestampToTime: React.FC = () => {
   const [timestamp, setTimestamp] = useState('');
   const [format, setFormat] = useState('YY-MM-DD hh:mm:ss');
   const [localTime, setLocalTime] = useState('');
@@ -22,7 +22,7 @@ function TimestampToTime() {
             <Form.Control
               placeholder="timestamp"
               value={timestamp}
-              onChange={(e) => setTimestamp(e.target.value)}
+              onChange={(e: any) => setTimestamp(e.target.value)}
             />
           </Col>
         </Form.Group>
@@ -32,7 +32,7 @@ function TimestampToTime() {
             <Form.Control 
               placeholder="format"
               value={format}
-              onChange={e => setFormat(e.target.value)}
+              onChange={(e: any) => setFormat(e.target.value)}
             />
             <Form.Text className="text-muted">
               Default: YY-MM-DD hh:mm:ss
@@ -58,7 +58,7 @@ function TimestampToTime() {
               readOnly
               placeholder="Local time"
               value={localTime}
-              onChange={e => setLocalTime(e.target.value)}
+              onChange={(e: any) => setLocalTime(e.target.value)}
             />
           </Col>
         </Form.Group>

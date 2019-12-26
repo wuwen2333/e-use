@@ -4,7 +4,7 @@ import Module from './components/Module';
 
 import './App.scss'
 
-function App() {
+const App: React.FC = () => {
   const [currentPage, setCurrentPage] = React.useState();
 
   return (

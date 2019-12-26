@@ -2,7 +2,14 @@ import React from 'react'
 
 import PageHeader from '../PageHeader'
 
-function Module({title, subTitle, children, className}) {
+interface Props {
+  title: string;
+  subTitle?: string;
+  children?: React.ReactNode;
+  className: string;
+}
+
+const Module: React.FC<Props> = ({title, subTitle, children, className}) => {
   return (
     <div className={`module ${className}`}>
       <PageHeader title={title} subTitle={subTitle} />
