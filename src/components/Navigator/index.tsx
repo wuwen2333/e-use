@@ -4,7 +4,12 @@ import './styles.scss'
 
 import navs from '../../conts/navigator';
 
-function Navigator({ currentPage, onPageChange }) {
+interface Props {
+  currentPage: string;
+  onPageChange: (currentPage: object) => void;
+}
+
+const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
 
   return (
     <div className={`navigator ${currentPage && 'sidebar'}`}>

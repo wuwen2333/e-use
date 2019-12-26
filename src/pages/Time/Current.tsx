@@ -4,15 +4,15 @@ import { copyText } from '../../utlis/common'
 import useInterval from '../../utlis/useInterval'
 import { timestampToTime } from './utils'
 
-function Current() {
-  let copyTextEl = React.createRef();
-  const timestamp = Math.round(new Date() / 1000);
+const Current: React.FC = () => {
+  let copyTextEl = React.createRef<HTMLInputElement>();
+  const timestamp = Math.round((new Date() as any) / 1000);
   const [current, setCurrent] = useState(timestamp);
-  const [currentTime, setCurrentTime] = useState(timestampToTime(timestamp));
+  const [currentTime, setCurrentTime] = useState(timestampToTime(String(timestamp)));
   useInterval(() => {
-    const curTimestamp = Math.round(new Date() / 1000);
+    const curTimestamp = Math.round((new Date() as any) / 1000);
     setCurrent(curTimestamp);
-    setCurrentTime(timestampToTime(curTimestamp))
+    setCurrentTime(timestampToTime(String(curTimestamp)))
   }, 1000);
 
   return (
@@ -23,6 +23,7 @@ function Current() {
           Current timestamp(s): {current}
           <input
             type="text"
+            readOnly
             value={current}
             ref={copyTextEl}
             style={{ opacity: 0, position: 'absolute', left: '-100%'}}

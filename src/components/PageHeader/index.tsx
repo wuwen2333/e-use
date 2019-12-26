@@ -2,7 +2,12 @@ import React from 'react'
 
 import './styles.scss';
 
-function PageHeader({ title, subTitle }) {
+interface Props {
+  title: string;
+  subTitle?: string;
+}
+
+const PageHeader: React.FC<Props> = ({ title, subTitle }) => {
   return (
     <div className="page-header">
       <p className="title">{ title }</p>

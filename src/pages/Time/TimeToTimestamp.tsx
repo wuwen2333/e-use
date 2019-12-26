@@ -8,15 +8,15 @@ import {
 } from 'react-bootstrap'
 import { timeToTimestamp } from './utils'
 
-function TimeToTimestamp() {
+const TimeToTimestamp: React.FC = () => {
   const current = new Date();
   const [timestamp, setTimestamp] = useState('');
-  const [year, setYear] = useState(current.getFullYear());
-  const [month, setMonth] = useState(current.getMonth() + 1);
-  const [date, setDate] = useState(current.getDate());
-  const [hour, setHour] = useState(current.getHours());
-  const [mins, setMins] = useState(current.getMinutes());
-  const [seconds, setSeconds] = useState(current.getSeconds());
+  const [year, setYear] = useState(String(current.getFullYear()));
+  const [month, setMonth] = useState(String(current.getMonth() + 1));
+  const [date, setDate] = useState(String(current.getDate()));
+  const [hour, setHour] = useState(String(current.getHours()));
+  const [mins, setMins] = useState(String(current.getMinutes()));
+  const [seconds, setSeconds] = useState(String(current.getSeconds()));
   return (
     <Card>
       <Card.Body>
@@ -28,7 +28,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Year"
                 value={year}
-                onChange={(e) => setYear(e.target.value)}
+                onChange={(e: any) => setYear(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -38,7 +38,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Month"
                 value={month}
-                onChange={(e) => setMonth(e.target.value)}
+                onChange={(e: any) => setMonth(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -48,7 +48,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e: any) => setDate(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -58,7 +58,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Hour"
                 value={hour}
-                onChange={(e) => setHour(e.target.value)}
+                onChange={(e: any) => setHour(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -68,7 +68,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Minute"
                 value={mins}
-                onChange={(e) => setMins(e.target.value)}
+                onChange={(e: any) => setMins(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -78,7 +78,7 @@ function TimeToTimestamp() {
               <Form.Control
                 placeholder="Seconds"
                 value={seconds}
-                onChange={(e) => setSeconds(e.target.value)}
+                onChange={(e: any) => setSeconds(e.target.value)}
               />
             </Form.Group>
           </Col>
@@ -96,7 +96,7 @@ function TimeToTimestamp() {
               readOnly
               placeholder="Timestamp"
               value={timestamp}
-              onChange={e => setTimestamp(e.target.value)}
+              onChange={(e: any) => setTimestamp(e.target.value)}
             />
         </Form.Group>
       </Card.Body>
