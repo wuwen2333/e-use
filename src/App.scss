@@ -1,6 +1,7 @@
 @import './assets/scss/base.scss';
 
 .app {
+  position: relative;
   display: flex;
   width: 1200px;
   height: 80vh;
@@ -17,6 +18,11 @@
     .module {
       padding: 20px;
     }
+  }
+  .alerts {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
   // reset bootstrap class
   .card {

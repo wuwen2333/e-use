@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigator from './components/Navigator';
 import Module from './components/Module';
+import Alerts from './components/Alerts';
 
 import './App.scss'
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           </Module>
         </div>
       )}
+      <Alerts />
     </div>
   );
 }
