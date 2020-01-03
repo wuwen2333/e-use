@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
+import { connect, ConnectedProps } from 'react-redux'
 import { Card, Button } from 'react-bootstrap'
 import { copyText } from '../../utlis/common'
 import useInterval from '../../utlis/useInterval'
 import { timestampToTime } from './utils'
+import { showAlert } from '../../store/alert/actions'
 
-const Current: React.FC = () => {
+const connector = connect(
+  null,
+  { showAlert }
+)
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+const Current: React.FC<PropsFromRedux> = ({showAlert}) => {
   let copyTextEl = React.createRef<HTMLInputElement>();
   const timestamp = Math.round((new Date() as any) / 1000);
   const [current, setCurrent] = useState(timestamp);
@@ -31,7 +40,13 @@ const Current: React.FC = () => {
           <Button
             variant="outline-primary"
             style={{ marginLeft: '1rem', lineHeight: '1.15' }}
-            onClick={() => copyText(copyTextEl.current)}
+            onClick={() => {
+              copyText(copyTextEl.current, () => showAlert({
+                id: String((new Date()).getTime()),
+                variant: 'success',
+                message: 'Copy to clipboard',
+              }));
+            }}
           >
             copy
           </Button>
@@ -41,4 +56,4 @@ const Current: React.FC = () => {
   )
 }
 
-export default Current
+export default connector(Current)
