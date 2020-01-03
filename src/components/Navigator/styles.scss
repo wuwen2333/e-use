@@ -74,7 +74,7 @@
         height: 40px;
         border-radius: 8px;
         background: $linear-purple;
-        opacity: 0.5;
+        opacity: 0.8;
         overflow: hidden;
         @include position-center('img');
         img {
@@ -91,7 +91,7 @@
           text-align: left;
           line-height: 1.15;
           font-size: 12px;
-          color: #fff;
+          color: $light-purple;
           &.title {
             font-size: 14px;
             font-weight: bold;
@@ -103,11 +103,10 @@
           opacity: 1;
         }
         .title {
-          color: $light-purple
+          color: #fff
         }
         .desc {
-          color: $light-purple;
-          opacity: .6;
+          color: rgba(255,255,255,.8);
         }
       }
     }
