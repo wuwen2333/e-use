@@ -5,7 +5,8 @@ export interface Alert {
   id: string;
   variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light';
   message: string;
-  dismissible: boolean;
+  delay?: number;
+  dismissible?: boolean;
 }
 
 export interface AlertState {

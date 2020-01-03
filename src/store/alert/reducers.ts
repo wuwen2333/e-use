@@ -6,7 +6,7 @@ import {
 } from './types'
 
 const initialState: AlertState = {
-  alerts: [{ id: '111', variant: 'success', message: 'test', dismissible: true}]
+  alerts: []
 }
 export function alertReducer(
   state = initialState,
