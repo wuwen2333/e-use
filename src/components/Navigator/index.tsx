@@ -6,7 +6,7 @@ import navs from '../../conts/navigator';
 
 interface Props {
   currentPage: string;
-  onPageChange: (currentPage: object) => void;
+  onPageChange: (currentPage?: object) => void;
 }
 
 const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
@@ -15,7 +15,7 @@ const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
     <div className={`navigator ${currentPage && 'sidebar'}`}>
       <div className="nav-wrapper">
         <header>
-          <div className="logo"></div>
+          <div className="logo" onClick={() => onPageChange()}></div>
           <p>Ease to use</p>
         </header>
         <ul className="tool-list">
