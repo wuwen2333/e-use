@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+
+    .form-data{
+        flex: 1 1 auto;
+    }
+
+    .qrcode-img{
+        width: 200px;
+    }
+
+    input[type='checkbox']{
+        -webkit-appearance: checkbox;
+    }
+}
+
