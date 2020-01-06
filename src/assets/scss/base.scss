@@ -46,3 +46,10 @@ $box-shadow-card: 0 1px 20px 0 rgba(69, 90, 100, .08);
     background: $background;
   }
 }
+@mixin border-top ($selector, $background) {
+  @include border-bottom($selector, $background);
+  #{$selector}:after{
+    bottom: auto;
+    top: 0;
+  }
+}

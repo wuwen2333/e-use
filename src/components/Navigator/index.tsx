@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+  Form
+} from 'react-bootstrap'
 
 import './styles.scss'
 
@@ -10,13 +13,25 @@ interface Props {
 }
 
 const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
+  const [keyword, setKeyword] = React.useState('');
 
   return (
     <div className={`navigator ${currentPage && 'sidebar'}`}>
       <div className="nav-wrapper">
         <header>
-          <div className="logo" onClick={() => onPageChange()}></div>
-          <p>Ease to use</p>
+          <div className="logo" onClick={() => onPageChange()}>
+            <div className="icon"></div>
+            <p>Easy to use</p>
+          </div>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="search..."
+              value={keyword}
+              onInput={(e:any) => setKeyword(e.target.value)}
+            />
+            {keyword && <div className="clear" title="clear" onClick={() => setKeyword('')}></div>}
+          </div>
         </header>
         <ul className="tool-list">
           {

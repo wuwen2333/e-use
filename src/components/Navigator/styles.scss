@@ -13,40 +13,70 @@
     padding: 0 20px;
     box-sizing: border-box;
   }
-  .float-collapse-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(255,255,255,.8);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
   header {
     position: relative;
     display: flex;
     align-items: center;
     height: 80px;
     @include border-bottom('&', $linear-purple);
+    transition: all ease .4s;
     .logo {
-      width: 30px;
-      height: 30px;
-      border-radius: 4px;
-      background: $linear-purple;
-    }
-    p {
       flex: 1;
-      padding-left: 10px;
-      font-size: 18px;
-      color: #fff;
-      font-size: 18px;
+      display: flex;
+      transition: all ease .4s;
+      .icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        background: $linear-purple;
+      }
+      p {
+        flex: 1;
+        padding-left: 10px;
+        font-size: 18px;
+        color: #fff;
+        font-size: 18px;
+        transition: all ease .4s;
+      }
     }
-    .collapse-btn {
-      display: none;
-      background-color: rgba(255,255,255,.8);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+    .search {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      margin-left: 10px;
+      flex: 1;
+      transition: all ease .4s;
+      input {
+        flex: 1;
+        border: none;
+        max-width: 280px;
+        height: 30px;
+        padding: 0 10px;
+        line-height: 30px;
+        color: #fff;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: rgba(255,255,255,.2);
+        transition: all ease .4s;
+        &:focus {
+          background-color: rgba(255,255,255,.1);
+        }
+      }
+      .clear {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: url(../../assets/images/icon_clear.png) no-repeat;
+        background-size: cover;
+        opacity: 0.3;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
     }
   }
   .tool-list {
@@ -111,19 +141,36 @@
       }
     }
   }
-  &.sidebar, &.collapse:hover {
+  &.sidebar {
     flex: none;
-    padding: 10px;
     width: 270px;
     header {
       display: flex;
-      .collapse-btn {
-        display: block;
+      flex-direction: column;
+      height: auto;
+      &:after {
+        display: none;
+      }
+      @include border-top('.search', $linear-purple);
+      .logo {
+        width: 100%;
+        margin: 20px 0;
+      }
+      .search {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        &:after {
+          top: -20px;
+        }
+        input {
+          border-radius: 4px;
+        }
       }
     }
     .tool-list {
       display: flex;
-      margin-top: 20px;
+      margin-top: 0;
       .tool {
         flex-direction: column;
         background: none;
@@ -140,21 +187,6 @@
           }
         }
       }
-    }
-  }
-  &.collapse {
-    flex: none;
-    width: 40px;
-    margin: 0;
-    overflow: hidden;
-    header {
-      display: none;
-      .collapse-btn {
-        display: block;
-      }
-    }
-    .tool-list {
-      display: none;
     }
   }
 }
