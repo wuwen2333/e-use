@@ -1,18 +1,24 @@
 import React from 'react'
-import {
-  Form
-} from 'react-bootstrap'
+import { connect, ConnectedProps } from 'react-redux'
 
+import { prioritizeNav, searchNav } from '../../store/nav/actions'
 import './styles.scss'
-
-import navs from '../../conts/navigator';
 
 interface Props {
   currentPage: string;
   onPageChange: (currentPage?: object) => void;
 }
 
-const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
+const mapState = (state) => ({
+  navs: state.nav.navs
+})
+const connector = connect(
+  mapState,
+  { prioritizeNav, searchNav }
+)
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+const Navigator: React.FC<Props & PropsFromRedux> = ({ currentPage, onPageChange, navs, prioritizeNav, searchNav }) => {
   const [keyword, setKeyword] = React.useState('');
 
   return (
@@ -28,15 +34,33 @@ const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
               type="text"
               placeholder="search..."
               value={keyword}
-              onInput={(e:any) => setKeyword(e.target.value)}
+              onChange={(e:any) => {
+                setKeyword(e.target.value)
+                searchNav(e.target.value)
+              }}
+              onInput={(e:any) => {
+                setKeyword(e.target.value)
+                searchNav(e.target.value)
+              }}
             />
-            {keyword && <div className="clear" title="clear" onClick={() => setKeyword('')}></div>}
+            {keyword && <div className="clear" title="clear" onClick={() => {
+              setKeyword('')
+              searchNav('')
+            }}></div>}
           </div>
         </header>
         <ul className="tool-list">
           {
             navs.map((item, index) => (
-              <li className={`tool ${currentPage === item.name && 'active'}`} key={index} onClick={() => onPageChange(item)} title={item.desc}>
+              !item.hide && <li
+                className={`tool ${currentPage === item.name && 'active'}`}
+                key={item.name}
+                onClick={() => {
+                  onPageChange(item)
+                  prioritizeNav(index)
+                }}
+                title={item.desc}
+              >
                 <div className="icon">
                   <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
                 </div>
@@ -53,4 +77,4 @@ const Navigator: React.FC<Props> = ({ currentPage, onPageChange }) => {
   )
 }
 
-export default Navigator
+export default connector(Navigator);

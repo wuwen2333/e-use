@@ -17,10 +17,10 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 80px;
     @include border-bottom('&', $linear-purple);
     transition: all ease .4s;
     .logo {
+      margin: 20px 0;
       flex: 1;
       display: flex;
       transition: all ease .4s;
@@ -154,7 +154,6 @@
       @include border-top('.search', $linear-purple);
       .logo {
         width: 100%;
-        margin: 20px 0;
       }
       .search {
         margin-left: 0;
